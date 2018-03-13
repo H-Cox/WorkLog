@@ -214,25 +214,30 @@ def print_break(entry_date):
     else:
         if break_hour == 1:
             if break_minute == 1:
-                print("You had 1hr and 1min of time off spread over " + str(int(break_num)) + " breaks during the day")
+                print("You had 1hr and 1min of time off spread over " + str(int(break_num)) + " breaks during the day.")
             elif break_minute == 0:
-                print("You had 1hr of time off spread over " + str(int(break_num)) + " breaks during the day")
+                print("You had 1hr of time off spread over " + str(int(break_num)) + " breaks during the day.")
             else:
                 print("You had 1hr and " + str(int(break_minute)) +
-                      "mins of time off spread over " + str(int(break_num)) + " breaks during the day")
+                      "mins of time off spread over " + str(int(break_num)) + " breaks during the day.")
         elif break_hour == 0:
             if break_minute == 1:
                 print("You had just one minute off.... was that really worth it?")
             else:
-                print("You had " + str(int(break_minute)) + "mins of time off spread over " + str(int(break_num)) + " breaks during the day")
+                print("You had " + str(int(break_minute)) + "mins of time off spread over " + str(int(break_num)) + " breaks during the day.")
         else:
             if break_minute == 1:
-                print("You had " + str(int(break_hour)) + "hrs and 1min of time off spread over " + str(int(break_num)) + " breaks during the day")
+                print("You had " + str(int(break_hour)) + "hrs and 1min of time off spread over " + str(int(break_num)) + " breaks during the day.")
             elif break_minute == 0:
-                print("You had " + str(int(break_hour)) + "hrs of time off spread over " + str(int(break_num)) + " breaks during the day")
+                print("You had " + str(int(break_hour)) + "hrs of time off spread over " + str(int(break_num)) + " breaks during the day.")
             else:
                 print("You had " + str(int(break_hour)) + "hrs and " + str(int(break_minute)) +
-                    "mins of time off spread over " + str(int(break_num)) + " breaks during the day")
+                    "mins of time off spread over " + str(int(break_num)) + " breaks during the day.")
+
+# Prints the time spent on break on a certain day
+def print_work(entry_date):
+
+    print('You worked for ' + str(print_time(working_time(entry_date)))+'.')
 
 def week_remaining(date):
 
@@ -471,7 +476,8 @@ def mainselector():
 
         print("Press 1 to enter a new day into the log.")
         print("Press 2 to view the log for a day.")
-        print("Press 3 to quit.")
+        print("Press 3 to view a work log summary.")
+        print("Press 4 to quit.")
 
         choice = input()
 
@@ -495,10 +501,21 @@ def mainselector():
                 selection = False
 
         elif choice == "3":
+            summarise_log()
+
+            choice = input("If you want to quit, enter 1, otherwise, enter 0.")
+
+            if choice != "0":
+
+                selection = False
+
+        elif choice == "4":
             print("Quitting")
             selection = False
 
     print("Thank you for using the work logger.")
 
 
-summarise_log("01/09/2016","31/09/2016")
+if __name__ == "__main__":
+    mainselector()
+
