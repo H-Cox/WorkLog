@@ -210,7 +210,7 @@ def print_break(entry_date):
     break_num = break_number(entry_date)
 
     if mins_break == 0:
-        print("You did not stop working at all!")
+        print("You did not stop working at all, wowwza!")
     else:
         if break_hour == 1:
             if break_minute == 1:
